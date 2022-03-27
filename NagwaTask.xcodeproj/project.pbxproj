@@ -21,6 +21,8 @@
 		326A393527F0F3A200EEB279 /* ListFilesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 326A393327F0F3A200EEB279 /* ListFilesViewController.xib */; };
 		326A393B27F0F4D600EEB279 /* FileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326A393927F0F4D600EEB279 /* FileTableViewCell.swift */; };
 		326A393C27F0F4D600EEB279 /* FileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 326A393A27F0F4D600EEB279 /* FileTableViewCell.xib */; };
+		326A394027F0FF4C00EEB279 /* UITableView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326A393E27F0FF4C00EEB279 /* UITableView + Extensions.swift */; };
+		326A394127F0FF4C00EEB279 /* AnyConfigurableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326A393F27F0FF4C00EEB279 /* AnyConfigurableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		326A393327F0F3A200EEB279 /* ListFilesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListFilesViewController.xib; sourceTree = "<group>"; };
 		326A393927F0F4D600EEB279 /* FileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTableViewCell.swift; sourceTree = "<group>"; };
 		326A393A27F0F4D600EEB279 /* FileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FileTableViewCell.xib; sourceTree = "<group>"; };
+		326A393E27F0FF4C00EEB279 /* UITableView + Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView + Extensions.swift"; sourceTree = "<group>"; };
+		326A393F27F0FF4C00EEB279 /* AnyConfigurableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyConfigurableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,7 @@
 		326A38F127F0F28000EEB279 /* NagwaTask */ = {
 			isa = PBXGroup;
 			children = (
+				326A393D27F0FEE800EEB279 /* Helpers */,
 				326A393727F0F42200EEB279 /* Resouces */,
 				326A393627F0F41800EEB279 /* Core */,
 				326A392227F0F33800EEB279 /* ListFilesScene */,
@@ -212,6 +217,15 @@
 				326A393A27F0F4D600EEB279 /* FileTableViewCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		326A393D27F0FEE800EEB279 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				326A393F27F0FF4C00EEB279 /* AnyConfigurableCell.swift */,
+				326A393E27F0FF4C00EEB279 /* UITableView + Extensions.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -346,11 +360,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				326A394127F0FF4C00EEB279 /* AnyConfigurableCell.swift in Sources */,
 				326A392B27F0F35500EEB279 /* ListFilesInteractor.swift in Sources */,
 				326A393B27F0F4D600EEB279 /* FileTableViewCell.swift in Sources */,
 				326A392827F0F35500EEB279 /* ListFilesPresenter.swift in Sources */,
 				326A393427F0F3A200EEB279 /* ListFilesViewController.swift in Sources */,
 				326A392927F0F35500EEB279 /* ListFilesRouter.swift in Sources */,
+				326A394027F0FF4C00EEB279 /* UITableView + Extensions.swift in Sources */,
 				326A38F327F0F28000EEB279 /* AppDelegate.swift in Sources */,
 				326A392C27F0F35500EEB279 /* ListFilesModel.swift in Sources */,
 			);
