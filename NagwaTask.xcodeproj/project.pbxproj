@@ -19,6 +19,8 @@
 		326A392C27F0F35500EEB279 /* ListFilesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326A392727F0F35500EEB279 /* ListFilesModel.swift */; };
 		326A393427F0F3A200EEB279 /* ListFilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326A393227F0F3A200EEB279 /* ListFilesViewController.swift */; };
 		326A393527F0F3A200EEB279 /* ListFilesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 326A393327F0F3A200EEB279 /* ListFilesViewController.xib */; };
+		326A393B27F0F4D600EEB279 /* FileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326A393927F0F4D600EEB279 /* FileTableViewCell.swift */; };
+		326A393C27F0F4D600EEB279 /* FileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 326A393A27F0F4D600EEB279 /* FileTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		326A392727F0F35500EEB279 /* ListFilesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFilesModel.swift; sourceTree = "<group>"; };
 		326A393227F0F3A200EEB279 /* ListFilesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFilesViewController.swift; sourceTree = "<group>"; };
 		326A393327F0F3A200EEB279 /* ListFilesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListFilesViewController.xib; sourceTree = "<group>"; };
+		326A393927F0F4D600EEB279 /* FileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTableViewCell.swift; sourceTree = "<group>"; };
+		326A393A27F0F4D600EEB279 /* FileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FileTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,9 +109,9 @@
 		326A38F127F0F28000EEB279 /* NagwaTask */ = {
 			isa = PBXGroup;
 			children = (
+				326A393727F0F42200EEB279 /* Resouces */,
+				326A393627F0F41800EEB279 /* Core */,
 				326A392227F0F33800EEB279 /* ListFilesScene */,
-				326A38F227F0F28000EEB279 /* AppDelegate.swift */,
-				326A38FB27F0F28200EEB279 /* Assets.xcassets */,
 				326A38FD27F0F28200EEB279 /* LaunchScreen.storyboard */,
 				326A390027F0F28200EEB279 /* Info.plist */,
 			);
@@ -162,6 +166,7 @@
 		326A392F27F0F36D00EEB279 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				326A393827F0F4B600EEB279 /* Cells */,
 				326A393227F0F3A200EEB279 /* ListFilesViewController.swift */,
 				326A393327F0F3A200EEB279 /* ListFilesViewController.xib */,
 			);
@@ -182,6 +187,31 @@
 				326A392727F0F35500EEB279 /* ListFilesModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		326A393627F0F41800EEB279 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				326A38F227F0F28000EEB279 /* AppDelegate.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		326A393727F0F42200EEB279 /* Resouces */ = {
+			isa = PBXGroup;
+			children = (
+				326A38FB27F0F28200EEB279 /* Assets.xcassets */,
+			);
+			path = Resouces;
+			sourceTree = "<group>";
+		};
+		326A393827F0F4B600EEB279 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				326A393927F0F4D600EEB279 /* FileTableViewCell.swift */,
+				326A393A27F0F4D600EEB279 /* FileTableViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,6 +319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				326A38FF27F0F28200EEB279 /* LaunchScreen.storyboard in Resources */,
+				326A393C27F0F4D600EEB279 /* FileTableViewCell.xib in Resources */,
 				326A393527F0F3A200EEB279 /* ListFilesViewController.xib in Resources */,
 				326A38FC27F0F28200EEB279 /* Assets.xcassets in Resources */,
 			);
@@ -316,6 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				326A392B27F0F35500EEB279 /* ListFilesInteractor.swift in Sources */,
+				326A393B27F0F4D600EEB279 /* FileTableViewCell.swift in Sources */,
 				326A392827F0F35500EEB279 /* ListFilesPresenter.swift in Sources */,
 				326A393427F0F3A200EEB279 /* ListFilesViewController.swift in Sources */,
 				326A392927F0F35500EEB279 /* ListFilesRouter.swift in Sources */,

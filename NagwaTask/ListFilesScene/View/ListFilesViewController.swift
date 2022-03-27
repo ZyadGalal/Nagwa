@@ -9,13 +9,13 @@ import UIKit
 
 class ListFilesViewController: UIViewController {
 
+    @IBOutlet weak var filesTableView: UITableView!
     var presenter: ListFilesPresenterProtocol?
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
     }
-
+    
 
 }
 
