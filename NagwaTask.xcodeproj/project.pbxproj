@@ -13,6 +13,12 @@
 		326A390A27F0F28300EEB279 /* NagwaTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326A390927F0F28300EEB279 /* NagwaTaskTests.swift */; };
 		326A391427F0F28300EEB279 /* NagwaTaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326A391327F0F28300EEB279 /* NagwaTaskUITests.swift */; };
 		326A391627F0F28300EEB279 /* NagwaTaskUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326A391527F0F28300EEB279 /* NagwaTaskUITestsLaunchTests.swift */; };
+		326A392827F0F35500EEB279 /* ListFilesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326A392327F0F35500EEB279 /* ListFilesPresenter.swift */; };
+		326A392927F0F35500EEB279 /* ListFilesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326A392427F0F35500EEB279 /* ListFilesRouter.swift */; };
+		326A392B27F0F35500EEB279 /* ListFilesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326A392627F0F35500EEB279 /* ListFilesInteractor.swift */; };
+		326A392C27F0F35500EEB279 /* ListFilesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326A392727F0F35500EEB279 /* ListFilesModel.swift */; };
+		326A393427F0F3A200EEB279 /* ListFilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326A393227F0F3A200EEB279 /* ListFilesViewController.swift */; };
+		326A393527F0F3A200EEB279 /* ListFilesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 326A393327F0F3A200EEB279 /* ListFilesViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +49,12 @@
 		326A390F27F0F28300EEB279 /* NagwaTaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NagwaTaskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		326A391327F0F28300EEB279 /* NagwaTaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NagwaTaskUITests.swift; sourceTree = "<group>"; };
 		326A391527F0F28300EEB279 /* NagwaTaskUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NagwaTaskUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		326A392327F0F35500EEB279 /* ListFilesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFilesPresenter.swift; sourceTree = "<group>"; };
+		326A392427F0F35500EEB279 /* ListFilesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFilesRouter.swift; sourceTree = "<group>"; };
+		326A392627F0F35500EEB279 /* ListFilesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFilesInteractor.swift; sourceTree = "<group>"; };
+		326A392727F0F35500EEB279 /* ListFilesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFilesModel.swift; sourceTree = "<group>"; };
+		326A393227F0F3A200EEB279 /* ListFilesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFilesViewController.swift; sourceTree = "<group>"; };
+		326A393327F0F3A200EEB279 /* ListFilesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListFilesViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +105,7 @@
 		326A38F127F0F28000EEB279 /* NagwaTask */ = {
 			isa = PBXGroup;
 			children = (
+				326A392227F0F33800EEB279 /* ListFilesScene */,
 				326A38F227F0F28000EEB279 /* AppDelegate.swift */,
 				326A38FB27F0F28200EEB279 /* Assets.xcassets */,
 				326A38FD27F0F28200EEB279 /* LaunchScreen.storyboard */,
@@ -116,6 +129,59 @@
 				326A391527F0F28300EEB279 /* NagwaTaskUITestsLaunchTests.swift */,
 			);
 			path = NagwaTaskUITests;
+			sourceTree = "<group>";
+		};
+		326A392227F0F33800EEB279 /* ListFilesScene */ = {
+			isa = PBXGroup;
+			children = (
+				326A393127F0F38000EEB279 /* Model */,
+				326A393027F0F37600EEB279 /* Interactor */,
+				326A392F27F0F36D00EEB279 /* View */,
+				326A392E27F0F36500EEB279 /* Router */,
+				326A392D27F0F35D00EEB279 /* Presenter */,
+			);
+			path = ListFilesScene;
+			sourceTree = "<group>";
+		};
+		326A392D27F0F35D00EEB279 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				326A392327F0F35500EEB279 /* ListFilesPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		326A392E27F0F36500EEB279 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				326A392427F0F35500EEB279 /* ListFilesRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		326A392F27F0F36D00EEB279 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				326A393227F0F3A200EEB279 /* ListFilesViewController.swift */,
+				326A393327F0F3A200EEB279 /* ListFilesViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		326A393027F0F37600EEB279 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				326A392627F0F35500EEB279 /* ListFilesInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		326A393127F0F38000EEB279 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				326A392727F0F35500EEB279 /* ListFilesModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				326A38FF27F0F28200EEB279 /* LaunchScreen.storyboard in Resources */,
+				326A393527F0F3A200EEB279 /* ListFilesViewController.xib in Resources */,
 				326A38FC27F0F28200EEB279 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -248,7 +315,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				326A392B27F0F35500EEB279 /* ListFilesInteractor.swift in Sources */,
+				326A392827F0F35500EEB279 /* ListFilesPresenter.swift in Sources */,
+				326A393427F0F3A200EEB279 /* ListFilesViewController.swift in Sources */,
+				326A392927F0F35500EEB279 /* ListFilesRouter.swift in Sources */,
 				326A38F327F0F28000EEB279 /* AppDelegate.swift in Sources */,
+				326A392C27F0F35500EEB279 /* ListFilesModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
