@@ -48,6 +48,7 @@ class AudioPlayerViewController: UIViewController {
     
     @IBAction func SliderValueChanged(_ sender: UISlider) {
         player?.currentTime = TimeInterval(sender.value)
+        updateTime()
     }
     func setupUI() {
         guard let duration = player?.duration, let currentTime = player?.currentTime else{return }
@@ -73,11 +74,11 @@ class AudioPlayerViewController: UIViewController {
         guard let player = player else {return}
         player.prepareToPlay()
         player.volume = 1.0
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.updateTime(_:)), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.updateTime), userInfo: nil, repeats: true)
         player.play()
         
     }
-    @objc private func updateTime(_ timer: Timer) {
+    @objc private func updateTime() {
         guard let player = player else {return}
         let remainingTime = player.duration - player.currentTime
         let elapsedTime = player.currentTime
