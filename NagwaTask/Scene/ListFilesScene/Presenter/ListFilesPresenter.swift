@@ -11,12 +11,14 @@ import AVFoundation
 
 protocol ListFilesView: AnyObject{
     var presenter: ListFilesPresenterProtocol? {get set}
+    func updateUIWith(title: String)
 }
 
 protocol ListFilesPresenterProtocol: AnyObject {
     func viewDidLoad()
     func numberOfFiles() -> Int
     func getFile(at index: Int) -> FileModel
+    func didSelectFile(at index: Int)
 }
 
 class ListFilesPresenter: ListFilesPresenterProtocol{
@@ -40,6 +42,7 @@ class ListFilesPresenter: ListFilesPresenterProtocol{
     }
     func viewDidLoad() {
         files = listFilesFrom(directory: directory, with: "mp3")
+        self.view?.updateUIWith(title: directory.isEmpty ? "Root" : directory)
     }
     func listFilesFrom(directory: String, with extensionWanted: String) -> [FileModel] {
 
@@ -71,5 +74,13 @@ class ListFilesPresenter: ListFilesPresenterProtocol{
     func getFile(at index: Int) -> FileModel{
         return files[index]
     }
-    
+    func didSelectFile(at index: Int) {
+        let file = files[index]
+        switch file.fileType {
+        case .Folder:
+            router.navigateToSubFolder(from: view!, directory: file.path.lastPathComponent)
+        case .Audio:
+            router.navigateToAudioPlayer(from: view!, path: file.path)
+        }
+    }
 }

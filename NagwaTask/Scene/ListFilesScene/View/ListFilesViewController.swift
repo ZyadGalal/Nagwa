@@ -23,6 +23,10 @@ class ListFilesViewController: UIViewController {
 }
 
 extension ListFilesViewController: ListFilesView {
+    func updateUIWith(title: String) {
+        self.title = title
+    }
+    
     
 }
 
@@ -49,4 +53,10 @@ extension ListFilesViewController: UITableViewDataSource {
     }
     
     
+}
+
+extension ListFilesViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter?.didSelectFile(at: indexPath.row)
+    }
 }

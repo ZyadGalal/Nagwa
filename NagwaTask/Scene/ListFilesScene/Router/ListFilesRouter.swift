@@ -18,4 +18,17 @@ class ListFilesRouter {
         }
         return createViewController
     }
+    
+    func navigateToAudioPlayer(from view: ListFilesView, path: URL) {
+        if let viewController = view as? UIViewController {
+            let audioPlayer = AudioPlayerRouter.createAudioPlayerViewController(path: path)
+            viewController.navigationController?.present(audioPlayer, animated: true)
+        }
+    }
+    func navigateToSubFolder(from view: ListFilesView, directory: String) {
+        if let viewController = view as? UIViewController {
+            let listFile = ListFilesRouter.createListFilesViewController(directory: directory)
+            viewController.navigationController?.pushViewController(listFile, animated: true)
+        }
+    }
 }
