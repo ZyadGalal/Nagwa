@@ -18,7 +18,7 @@ class AudioPlayerViewController: UIViewController {
     var presenter: AudioPlayerPresenterProtocol?
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        presenter?.viewDidLoad()
     }
     @IBAction func playButtonDidClicked(_ sender: Any) {
     }
@@ -31,5 +31,9 @@ class AudioPlayerViewController: UIViewController {
 }
 
 extension AudioPlayerViewController: AudioPlayerView {
+    func updateUIWith(audioName: String) {
+        self.audioLabel.text = audioName
+    }
+    
     
 }
