@@ -7,13 +7,26 @@
 
 import UIKit
 
+class AudioPlayerViewController: UIViewController {
 
-class AudioPlayerViewController: UIViewController{
+    @IBOutlet weak var forwardButton: UIButton!
+    @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var backwardButton: UIButton!
+    @IBOutlet weak var audioSlider: UISlider!
+    @IBOutlet weak var audioLabel: UILabel!
     
     var presenter: AudioPlayerPresenterProtocol?
-    override func viewDidLoad(){
+    override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+    @IBAction func playButtonDidClicked(_ sender: Any) {
+    }
+    
+    @IBAction func forwardButtonDidClicked(_ sender: Any) {
+    }
+    
+    @IBAction func backwardButtonDidClicked(_ sender: Any) {
     }
 }
 
