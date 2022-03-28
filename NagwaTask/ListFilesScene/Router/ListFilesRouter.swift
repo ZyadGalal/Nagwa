@@ -8,13 +8,13 @@
 import UIKit
 
 class ListFilesRouter {
-    class func createListFilesViewController() -> UIViewController{
+    class func createListFilesViewController(directory: String) -> UIViewController{
         let createViewController = ListFilesViewController()
         
         if let createView = createViewController as? ListFilesView{
             let router = ListFilesRouter()
             let interactor = ListFilesInteractor()
-            let presenter = ListFilesPresenter(view: createView, router: router, interactor: interactor)
+            let presenter = ListFilesPresenter(view: createView, router: router, interactor: interactor, directory: directory)
             createView.presenter = presenter
         }
         return createViewController
