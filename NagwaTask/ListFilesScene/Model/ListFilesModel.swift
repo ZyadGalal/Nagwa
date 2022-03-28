@@ -7,13 +7,13 @@
 
 import Foundation
 
-// with using Base Model class you only need to make model to Data key
-// Base Model Schema
-/*
- class BaseModel : Codable {
- let status : Bool?
- let message:String?
- let errors : [String]?
- let data : T?
- }
- */
+struct FileModel {
+    let fileName: String
+    let path: URL
+    let fileType: FileType
+    let duration: String
+}
+
+enum FileType {
+    case Folder, Audio
+}
