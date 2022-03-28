@@ -3,6 +3,7 @@
     <device id="retina6_0" orientation="landscape" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,8 +14,10 @@
                 <outlet property="audioLabel" destination="PyN-Wx-1fP" id="yUy-cp-S1P"/>
                 <outlet property="audioSlider" destination="VCN-Sj-QXt" id="81R-Fy-R4U"/>
                 <outlet property="backwardButton" destination="MMw-2X-hTu" id="JOG-bl-AEk"/>
+                <outlet property="elapsedTimeLabel" destination="CoL-c5-h7Y" id="5vT-RO-QO2"/>
                 <outlet property="forwardButton" destination="hLS-EF-fec" id="Hlz-hl-iCS"/>
                 <outlet property="playButton" destination="lyA-wG-GkL" id="Ms3-fR-fG4"/>
+                <outlet property="remainingTimeLabel" destination="fYj-RT-6kR" id="7Qc-y1-npy"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -45,8 +48,16 @@
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lyA-wG-GkL">
                                     <rect key="frame" x="116.66666666666666" y="0.0" width="116.33333333333334" height="30.666666666666668"/>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" image="play.fill" catalog="system"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal">
+                                        <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <imageReference key="image" image="play.fill" catalog="system" symbolScale="large"/>
+                                    </state>
+                                    <state key="selected">
+                                        <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <imageReference key="image" image="pause.fill" catalog="system" symbolScale="large"/>
+                                    </state>
                                     <connections>
                                         <action selector="playButtonDidClicked:" destination="-1" eventType="touchUpInside" id="fv7-vX-u7u"/>
                                     </connections>
@@ -65,16 +76,19 @@
                             <rect key="frame" x="0.0" y="80.666666666666686" width="349.66666666666669" height="30"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CoL-c5-h7Y">
-                                    <rect key="frame" x="0.0" y="0.0" width="27.333333333333332" height="30"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="30"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="VCN-Sj-QXt">
-                                    <rect key="frame" x="30.333333333333314" y="0.0" width="275" height="31"/>
+                                    <rect key="frame" x="3" y="0.0" width="343" height="31"/>
+                                    <connections>
+                                        <action selector="SliderValueChanged:" destination="-1" eventType="valueChanged" id="feG-77-jp1"/>
+                                    </connections>
                                 </slider>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYj-RT-6kR">
-                                    <rect key="frame" x="308.33333333333331" y="0.0" width="41.333333333333314" height="30"/>
+                                    <rect key="frame" x="349" y="0.0" width="0.66666666666668561" height="30"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -133,6 +147,7 @@
     <resources>
         <image name="chevron.backward.2" catalog="system" width="128" height="105"/>
         <image name="chevron.forward.2" catalog="system" width="128" height="105"/>
+        <image name="pause.fill" catalog="system" width="116" height="128"/>
         <image name="play.fill" catalog="system" width="116" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
