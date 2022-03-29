@@ -59,7 +59,9 @@ extension ListFilesViewController: UITableViewDataSource {
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 110.0
+    }
 }
 
 extension ListFilesViewController: UITableViewDelegate {

@@ -19,7 +19,6 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="music.note" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="nDi-Bz-DTt">
                         <rect key="frame" x="8" y="8.5" width="95" height="94"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="95" id="AfJ-TA-4mr"/>
                             <constraint firstAttribute="width" secondItem="nDi-Bz-DTt" secondAttribute="height" multiplier="1:1" id="Xnv-Rt-93A"/>
                         </constraints>
                     </imageView>
