@@ -20,9 +20,8 @@ class AudioPlayerViewController: UIViewController {
     
     private var player: AVAudioPlayer?
     private var timer: Timer?
-
-    
     var presenter: AudioPlayerPresenterProtocol?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad()
@@ -58,7 +57,7 @@ class AudioPlayerViewController: UIViewController {
     private func setupSlider() {
         guard let duration = player?.duration else {return}
         audioSlider.maximumValue = Float(duration)
-        audioSlider.value = 0.0
+        audioSlider.setValue(0.0, animated: true)
     }
     private func setupPlayer() {
         do {
@@ -81,7 +80,7 @@ class AudioPlayerViewController: UIViewController {
         guard let player = player else {return}
         let remainingTime = player.duration - player.currentTime
         let elapsedTime = player.currentTime
-        audioSlider.value = Float(player.currentTime)
+        audioSlider.setValue(Float(player.currentTime), animated: true) 
         remainingTimeLabel.text = presenter?.getStringTime(from: remainingTime)
         elapsedTimeLabel.text = presenter?.getStringTime(from: elapsedTime)
     
