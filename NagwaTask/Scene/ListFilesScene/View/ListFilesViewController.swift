@@ -44,6 +44,7 @@ extension ListFilesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let file = presenter?.getFile(at: indexPath.row) else {return UITableViewCell()}
         let cell = tableView.dequeueCell() as FileTableViewCell
+        cell.selectionStyle = .none
         cell.audioDurationLabel.text = file.fileName
         cell.fileNameLabel.text = file.fileName
         cell.audioDurationLabel.text = file.duration
