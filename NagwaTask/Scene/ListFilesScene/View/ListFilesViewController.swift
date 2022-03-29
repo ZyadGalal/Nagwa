@@ -14,9 +14,14 @@ class ListFilesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        presenter?.viewDidLoad()
+        presenter?.loadView()
+        let refresh = UIBarButtonItem(image: UIImage(systemName: "arrow.triangle.2.circlepath"), style: .plain, target: self, action: #selector(self.refresh))
+        self.navigationItem.rightBarButtonItem = refresh
     }
     
+    @objc func refresh() {
+        presenter?.loadView()
+    }
     func setupUI() {
         filesTableView.register(FileTableViewCell.self)
     }

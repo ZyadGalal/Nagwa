@@ -15,7 +15,7 @@ protocol ListFilesView: AnyObject{
 }
 
 protocol ListFilesPresenterProtocol: AnyObject {
-    func viewDidLoad()
+    func loadView()
     func numberOfFiles() -> Int
     func getFile(at index: Int) -> FileModel
     func didSelectFile(at index: Int)
@@ -40,7 +40,7 @@ class ListFilesPresenter: ListFilesPresenterProtocol{
         self.router = router
         self.directory = directory
     }
-    func viewDidLoad() {
+    func loadView() {
         files = listFilesFrom(directory: directory, with: "mp3")
         self.view?.updateUIWith(title: directory == nil ? "Root" : directory!.lastPathComponent)
     }
