@@ -42,7 +42,7 @@ class ListFilesPresenter: ListFilesPresenterProtocol{
     }
     func loadView() {
         files = listFilesFrom(directory: directory, with: "mp3")
-        self.view?.updateUIWith(title: directory == nil ? "Root" : directory!.lastPathComponent)
+        self.view?.updateUIWith(title: directory == nil ? "Documents" : directory!.lastPathComponent)
     }
     func listFilesFrom(directory: URL?, with extensionWanted: String) -> [FileModel] {
 
