@@ -55,13 +55,16 @@ class ListFilesPresenter: ListFilesPresenterProtocol{
         }
         do {
             let directoryContents = try FileManager.default.contentsOfDirectory(at: documentURL, includingPropertiesForKeys: nil, options: [])
-
+            
             let filesPath = directoryContents.filter{ $0.pathExtension == extensionWanted || $0.hasDirectoryPath}
             let files = filesPath.map{
                 FileModel(fileName: $0.lastPathComponent,
                           path: $0,
                           fileType: $0.pathExtension == extensionWanted ? .Audio : .Folder,
                           duration: formatter.string(from: AVAsset(url: $0).duration.seconds) ?? "0") }
+                .sorted {
+                    ($0.fileType, $0.fileName.lowercased()) < ($1.fileType, $1.fileName.lowercased())
+                }
             
             return files
 

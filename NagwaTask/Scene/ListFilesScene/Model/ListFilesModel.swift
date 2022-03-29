@@ -14,6 +14,6 @@ struct FileModel {
     let duration: String
 }
 
-enum FileType {
+enum FileType: Comparable {
     case Folder, Audio
 }

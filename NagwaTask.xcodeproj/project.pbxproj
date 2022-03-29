@@ -24,7 +24,6 @@
 		326A394127F0FF4C00EEB279 /* AnyConfigurableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326A393F27F0FF4C00EEB279 /* AnyConfigurableCell.swift */; };
 		32F508FB27F24B7900A51CEB /* AudioPlayerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F508F627F24B7900A51CEB /* AudioPlayerPresenter.swift */; };
 		32F508FC27F24B7900A51CEB /* AudioPlayerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F508F727F24B7900A51CEB /* AudioPlayerRouter.swift */; };
-		32F508FF27F24B7900A51CEB /* AudioPlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F508FA27F24B7900A51CEB /* AudioPlayerModel.swift */; };
 		32F5090627F24C8300A51CEB /* AudioPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F5090427F24C8300A51CEB /* AudioPlayerViewController.swift */; };
 		32F5090727F24C8300A51CEB /* AudioPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32F5090527F24C8300A51CEB /* AudioPlayerViewController.xib */; };
 /* End PBXBuildFile section */
@@ -68,7 +67,6 @@
 		326A393F27F0FF4C00EEB279 /* AnyConfigurableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyConfigurableCell.swift; sourceTree = "<group>"; };
 		32F508F627F24B7900A51CEB /* AudioPlayerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerPresenter.swift; sourceTree = "<group>"; };
 		32F508F727F24B7900A51CEB /* AudioPlayerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerRouter.swift; sourceTree = "<group>"; };
-		32F508FA27F24B7900A51CEB /* AudioPlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerModel.swift; sourceTree = "<group>"; };
 		32F5090427F24C8300A51CEB /* AudioPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerViewController.swift; sourceTree = "<group>"; };
 		32F5090527F24C8300A51CEB /* AudioPlayerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioPlayerViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -239,7 +237,6 @@
 		32F508F527F24B5F00A51CEB /* AudioPlayerScene */ = {
 			isa = PBXGroup;
 			children = (
-				32F5090327F24BCE00A51CEB /* Model */,
 				32F5090227F24B9100A51CEB /* View */,
 				32F5090127F24B8B00A51CEB /* Router */,
 				32F5090027F24B8400A51CEB /* Presenter */,
@@ -270,14 +267,6 @@
 				32F5090527F24C8300A51CEB /* AudioPlayerViewController.xib */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		32F5090327F24BCE00A51CEB /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				32F508FA27F24B7900A51CEB /* AudioPlayerModel.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -422,7 +411,6 @@
 				326A394027F0FF4C00EEB279 /* UITableView + Extensions.swift in Sources */,
 				32F508FC27F24B7900A51CEB /* AudioPlayerRouter.swift in Sources */,
 				32F5090627F24C8300A51CEB /* AudioPlayerViewController.swift in Sources */,
-				32F508FF27F24B7900A51CEB /* AudioPlayerModel.swift in Sources */,
 				326A38F327F0F28000EEB279 /* AppDelegate.swift in Sources */,
 				326A392C27F0F35500EEB279 /* ListFilesModel.swift in Sources */,
 			);
