@@ -26,6 +26,7 @@ class AudioPlayerPresenter: AudioPlayerPresenterProtocol{
     var path: URL?
     private weak var view: AudioPlayerView?
     private var router: AudioPlayerRouter
+    private var currentDirectoryAudioPaths: [URL] = []
     private let formatter: DateComponentsFormatter = {
         let formatter = DateComponentsFormatter()
         formatter.unitsStyle = .positional
@@ -34,10 +35,11 @@ class AudioPlayerPresenter: AudioPlayerPresenterProtocol{
         return formatter
     }()
 
-    init (view: AudioPlayerView, router: AudioPlayerRouter, path: URL){
+    init (view: AudioPlayerView, router: AudioPlayerRouter, path: URL, audioPaths: [URL]){
         self.view = view
         self.router = router
         self.path = path
+        self.currentDirectoryAudioPaths = audioPaths
     }
     func viewDidLoad() {
         

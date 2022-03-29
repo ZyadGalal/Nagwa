@@ -26,7 +26,7 @@ class ListFilesPresenter: ListFilesPresenterProtocol{
     private weak var view: ListFilesView?
     private var router: ListFilesRouter
     private var files: [FileModel] = []
-    private var directory: String = ""
+    private var directory: URL?
     private let formatter: DateComponentsFormatter = {
         let formatter = DateComponentsFormatter()
         formatter.unitsStyle = .positional
@@ -35,22 +35,26 @@ class ListFilesPresenter: ListFilesPresenterProtocol{
         return formatter
     }()
     
-    init (view: ListFilesView, router: ListFilesRouter, directory: String){
+    init (view: ListFilesView, router: ListFilesRouter, directory: URL?){
         self.view = view
         self.router = router
         self.directory = directory
     }
     func viewDidLoad() {
         files = listFilesFrom(directory: directory, with: "mp3")
-        self.view?.updateUIWith(title: directory.isEmpty ? "Root" : directory)
+        self.view?.updateUIWith(title: directory == nil ? "Root" : directory!.lastPathComponent)
     }
-    func listFilesFrom(directory: String, with extensionWanted: String) -> [FileModel] {
+    func listFilesFrom(directory: URL?, with extensionWanted: String) -> [FileModel] {
 
-        let documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let Path = documentURL.appendingPathComponent(directory).absoluteURL
-
+        let documentURL: URL
+        if let directory = directory {
+            documentURL = directory
+        }
+        else {
+            documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        }
         do {
-            let directoryContents = try FileManager.default.contentsOfDirectory(at: Path, includingPropertiesForKeys: nil, options: [])
+            let directoryContents = try FileManager.default.contentsOfDirectory(at: documentURL, includingPropertiesForKeys: nil, options: [])
 
             let filesPath = directoryContents.filter{ $0.pathExtension == extensionWanted || $0.hasDirectoryPath}
             let files = filesPath.map{
@@ -78,9 +82,10 @@ class ListFilesPresenter: ListFilesPresenterProtocol{
         let file = files[index]
         switch file.fileType {
         case .Folder:
-            router.navigateToSubFolder(from: view!, directory: file.path.lastPathComponent)
+            router.navigateToSubFolder(from: view!, directory: file.path)
         case .Audio:
-            router.navigateToAudioPlayer(from: view!, path: file.path)
+            let audioPaths = files.filter({$0.fileType == .Audio}).map({$0.path})
+            router.navigateToAudioPlayer(from: view!, path: file.path, audioPaths: audioPaths)
         }
     }
 }
