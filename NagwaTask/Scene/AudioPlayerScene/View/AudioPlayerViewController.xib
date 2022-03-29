@@ -13,9 +13,9 @@
             <connections>
                 <outlet property="audioLabel" destination="PyN-Wx-1fP" id="yUy-cp-S1P"/>
                 <outlet property="audioSlider" destination="VCN-Sj-QXt" id="81R-Fy-R4U"/>
-                <outlet property="backwardButton" destination="MMw-2X-hTu" id="JOG-bl-AEk"/>
                 <outlet property="elapsedTimeLabel" destination="CoL-c5-h7Y" id="5vT-RO-QO2"/>
-                <outlet property="forwardButton" destination="hLS-EF-fec" id="Hlz-hl-iCS"/>
+                <outlet property="nextButton" destination="hLS-EF-fec" id="WPK-yB-dg3"/>
+                <outlet property="perviousButton" destination="MMw-2X-hTu" id="j4z-Bs-tgL"/>
                 <outlet property="playButton" destination="lyA-wG-GkL" id="Ms3-fR-fG4"/>
                 <outlet property="remainingTimeLabel" destination="fYj-RT-6kR" id="7Qc-y1-npy"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -43,7 +43,7 @@
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" image="chevron.backward.2" catalog="system"/>
                                     <connections>
-                                        <action selector="backwardButtonDidClicked:" destination="-1" eventType="touchUpInside" id="S0c-ZB-vSQ"/>
+                                        <action selector="perviousButtonDidClicked:" destination="-1" eventType="touchUpInside" id="0Lv-Vk-EIG"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lyA-wG-GkL">
@@ -67,7 +67,7 @@
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" image="chevron.forward.2" catalog="system"/>
                                     <connections>
-                                        <action selector="forwardButtonDidClicked:" destination="-1" eventType="touchUpInside" id="dfi-VD-das"/>
+                                        <action selector="nextButtonDidClicked:" destination="-1" eventType="touchUpInside" id="DI4-c2-Q7a"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -82,13 +82,13 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="VCN-Sj-QXt">
-                                    <rect key="frame" x="3" y="0.0" width="343" height="31"/>
+                                    <rect key="frame" x="3" y="0.0" width="343.66666666666669" height="31"/>
                                     <connections>
                                         <action selector="SliderValueChanged:" destination="-1" eventType="valueChanged" id="feG-77-jp1"/>
                                     </connections>
                                 </slider>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYj-RT-6kR">
-                                    <rect key="frame" x="349" y="0.0" width="0.66666666666668561" height="30"/>
+                                    <rect key="frame" x="349.66666666666669" y="0.0" width="0.0" height="30"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>

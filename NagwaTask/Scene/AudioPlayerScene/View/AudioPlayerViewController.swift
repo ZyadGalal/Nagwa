@@ -12,9 +12,9 @@ class AudioPlayerViewController: UIViewController {
 
     @IBOutlet weak var elapsedTimeLabel: UILabel!
     @IBOutlet weak var remainingTimeLabel: UILabel!
-    @IBOutlet weak var forwardButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
-    @IBOutlet weak var backwardButton: UIButton!
+    @IBOutlet weak var perviousButton: UIButton!
     @IBOutlet weak var audioSlider: UISlider!
     @IBOutlet weak var audioLabel: UILabel!
     
@@ -26,10 +26,7 @@ class AudioPlayerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad()
-        setupPlayer()
-        setupSlider()
-        setupUI()
-        togglePlay()
+        
     }
     override func viewWillDisappear(_ animated: Bool) {
         timer?.invalidate()
@@ -40,23 +37,25 @@ class AudioPlayerViewController: UIViewController {
         togglePlay()
     }
     
-    @IBAction func forwardButtonDidClicked(_ sender: Any) {
+    @IBAction func nextButtonDidClicked(_ sender: Any) {
+        presenter?.nextButtonDidClicked()
     }
     
-    @IBAction func backwardButtonDidClicked(_ sender: Any) {
+    @IBAction func perviousButtonDidClicked(_ sender: Any) {
+        presenter?.perviousButtonDidClicked()
     }
     
     @IBAction func SliderValueChanged(_ sender: UISlider) {
         player?.currentTime = TimeInterval(sender.value)
         updateTime()
     }
-    func setupUI() {
+    private func setupUI() {
         guard let duration = player?.duration, let currentTime = player?.currentTime else{return }
         audioLabel.text = presenter?.getAudioName()
         elapsedTimeLabel.text = presenter?.getStringTime(from: currentTime)
         remainingTimeLabel.text = presenter?.getStringTime(from: duration)
     }
-    func setupSlider() {
+    private func setupSlider() {
         guard let duration = player?.duration else {return}
         audioSlider.maximumValue = Float(duration)
         audioSlider.value = 0.0
@@ -103,6 +102,19 @@ class AudioPlayerViewController: UIViewController {
 }
 
 extension AudioPlayerViewController: AudioPlayerView {
+    func updatePlaybackButton(isNextEnabled: Bool, isPerviousEnabled: Bool) {
+        nextButton.isEnabled = isNextEnabled
+        perviousButton.isEnabled = isPerviousEnabled
+    }
+    
+    func playAudio() {
+        timer?.invalidate()
+        setupPlayer()
+        setupSlider()
+        setupUI()
+        togglePlay()
+    }
+    
     
 }
 
