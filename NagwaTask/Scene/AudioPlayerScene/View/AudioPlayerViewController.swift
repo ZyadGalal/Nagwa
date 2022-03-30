@@ -46,7 +46,7 @@ class AudioPlayerViewController: UIViewController {
     @IBAction func perviousButtonDidClicked(_ sender: Any) {
         presenter?.perviousButtonDidClicked()
     }
-    
+    //it can be only on "sliderViewChanged" but change player current time on value changed made UISlider lagged
     @IBAction func sliderDidEndEditing(_ sender: UISlider) {
         player?.currentTime = TimeInterval(sender.value)
         play()
@@ -74,9 +74,7 @@ class AudioPlayerViewController: UIViewController {
     private func prepareAudioSession() {
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [])
-            print("Playback OK")
             try AVAudioSession.sharedInstance().setActive(true)
-            print("Session is Active")
         } catch {
             print(error)
         }
@@ -92,13 +90,11 @@ class AudioPlayerViewController: UIViewController {
             print(error)
         }
     }
-
     @objc private func updateTime() {
         guard let player = player else {return}
         presenter?.updateTime(with: player.currentTime)
     
     }
-
     private func togglePlay() {
         guard let player = player else {return}
         if player.isPlaying {
