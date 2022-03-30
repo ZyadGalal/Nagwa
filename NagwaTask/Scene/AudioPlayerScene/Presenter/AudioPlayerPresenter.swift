@@ -13,23 +13,25 @@ protocol AudioPlayerView: AnyObject{
     var presenter: AudioPlayerPresenterProtocol? {get set}
     func updatePlaybackButton(isNextEnabled: Bool, isPerviousEnabled: Bool)
     func playAudio()
+    func updateTimingLabels(remainingTime: String, elapsedTime: String, currentTime: Float)
 }
 
 protocol AudioPlayerPresenterProtocol: AnyObject {
     var path: URL? {get}
     func viewDidLoad()
-    func getStringTime(from timeInterval: TimeInterval) -> String
     func getAudioName() -> String
     func nextButtonDidClicked()
     func perviousButtonDidClicked()
+    func updateAudioDuration(with duration: TimeInterval)
+    func updateTime(with currentTime: TimeInterval)
 }
 
 class AudioPlayerPresenter: AudioPlayerPresenterProtocol{
-
     var path: URL?
     private weak var view: AudioPlayerView?
     private var router: AudioPlayerRouter
     private var audioIndexPath = -1
+    private var audioDuration: TimeInterval?
     private var currentDirectoryAudioPaths: [URL] = []
     private let formatter: DateComponentsFormatter = {
         let formatter = DateComponentsFormatter()
@@ -46,13 +48,24 @@ class AudioPlayerPresenter: AudioPlayerPresenterProtocol{
         self.currentDirectoryAudioPaths = audioPaths
     }
     func viewDidLoad() {
-        audioIndexPath = currentDirectoryAudioPaths.firstIndex(of: path!) ?? -1
-        updatePlaybackButtons()
+        DispatchQueue.global().async {[weak self] in
+            guard let self = self else {return}
+            self.audioIndexPath = self.currentDirectoryAudioPaths.firstIndex(of: self.path!) ?? -1
+            DispatchQueue.main.async {
+                self.updatePlaybackButtons()
+            }
+        }
     }
 
-    
-    func getStringTime(from timeInterval: TimeInterval) -> String{
-        return formatter.string(from: timeInterval) ?? "00:00"
+    func updateAudioDuration(with duration: TimeInterval) {
+        self.audioDuration = duration
+    }
+    func updateTime(with currentTime: TimeInterval) {
+        if let audioDuration = audioDuration {
+            let remainingTime = audioDuration - currentTime
+            let elapsedTime = currentTime
+            self.view?.updateTimingLabels(remainingTime: remainingTime.getTimeAsString(), elapsedTime: elapsedTime.getTimeAsString(), currentTime: Float(currentTime))
+        }
     }
 
     func getAudioName() -> String {
