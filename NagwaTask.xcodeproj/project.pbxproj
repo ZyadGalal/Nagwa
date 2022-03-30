@@ -22,6 +22,7 @@
 		326A393C27F0F4D600EEB279 /* FileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 326A393A27F0F4D600EEB279 /* FileTableViewCell.xib */; };
 		326A394027F0FF4C00EEB279 /* UITableView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326A393E27F0FF4C00EEB279 /* UITableView + Extensions.swift */; };
 		326A394127F0FF4C00EEB279 /* AnyConfigurableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326A393F27F0FF4C00EEB279 /* AnyConfigurableCell.swift */; };
+		32796E1C27F4F62D0027EF6C /* TimeInterval+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32796E1B27F4F62D0027EF6C /* TimeInterval+Extension.swift */; };
 		32F508FB27F24B7900A51CEB /* AudioPlayerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F508F627F24B7900A51CEB /* AudioPlayerPresenter.swift */; };
 		32F508FC27F24B7900A51CEB /* AudioPlayerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F508F727F24B7900A51CEB /* AudioPlayerRouter.swift */; };
 		32F5090627F24C8300A51CEB /* AudioPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F5090427F24C8300A51CEB /* AudioPlayerViewController.swift */; };
@@ -65,6 +66,7 @@
 		326A393A27F0F4D600EEB279 /* FileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FileTableViewCell.xib; sourceTree = "<group>"; };
 		326A393E27F0FF4C00EEB279 /* UITableView + Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView + Extensions.swift"; sourceTree = "<group>"; };
 		326A393F27F0FF4C00EEB279 /* AnyConfigurableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyConfigurableCell.swift; sourceTree = "<group>"; };
+		32796E1B27F4F62D0027EF6C /* TimeInterval+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extension.swift"; sourceTree = "<group>"; };
 		32F508F627F24B7900A51CEB /* AudioPlayerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerPresenter.swift; sourceTree = "<group>"; };
 		32F508F727F24B7900A51CEB /* AudioPlayerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerRouter.swift; sourceTree = "<group>"; };
 		32F5090427F24C8300A51CEB /* AudioPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerViewController.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 			children = (
 				326A393F27F0FF4C00EEB279 /* AnyConfigurableCell.swift */,
 				326A393E27F0FF4C00EEB279 /* UITableView + Extensions.swift */,
+				32796E1B27F4F62D0027EF6C /* TimeInterval+Extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				32F5090627F24C8300A51CEB /* AudioPlayerViewController.swift in Sources */,
 				326A38F327F0F28000EEB279 /* AppDelegate.swift in Sources */,
 				326A392C27F0F35500EEB279 /* ListFilesModel.swift in Sources */,
+				32796E1C27F4F62D0027EF6C /* TimeInterval+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
