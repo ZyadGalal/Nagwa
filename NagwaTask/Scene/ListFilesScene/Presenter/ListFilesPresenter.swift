@@ -11,7 +11,8 @@ import AVFoundation
 
 protocol ListFilesView: AnyObject{
     var presenter: ListFilesPresenterProtocol? {get set}
-    func updateUIWith(title: String)
+    func updateUI()
+    func updateTitle(with title: String)
 }
 
 protocol ListFilesPresenterProtocol: AnyObject {
@@ -41,8 +42,14 @@ class ListFilesPresenter: ListFilesPresenterProtocol{
         self.directory = directory
     }
     func loadView() {
-        files = listFilesFrom(directory: directory, with: "mp3")
-        self.view?.updateUIWith(title: directory == nil ? "Documents" : directory!.lastPathComponent)
+        self.view?.updateTitle(with: self.directory == nil ? "Documents" : self.directory!.lastPathComponent)
+        DispatchQueue.global().async {[weak self] in
+            guard let self = self else {return}
+            self.files = self.listFilesFrom(directory: self.directory, with: "mp3")
+            DispatchQueue.main.async {
+                self.view?.updateUI()
+            }
+        }
     }
     func listFilesFrom(directory: URL?, with extensionWanted: String) -> [FileModel] {
 
