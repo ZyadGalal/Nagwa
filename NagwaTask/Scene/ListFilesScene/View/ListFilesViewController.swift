@@ -28,12 +28,12 @@ class ListFilesViewController: UIViewController {
 }
 
 extension ListFilesViewController: ListFilesView {
-    func updateUIWith(title: String) {
-        self.title = title
+    func updateUI() {
         filesTableView.reloadData()
     }
-    
-    
+    func updateTitle(with title: String) {
+        self.title = title
+    }
 }
 
 extension ListFilesViewController: UITableViewDataSource {

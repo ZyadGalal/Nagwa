@@ -33,13 +33,6 @@ class AudioPlayerPresenter: AudioPlayerPresenterProtocol{
     private var audioIndexPath = -1
     private var audioDuration: TimeInterval?
     private var currentDirectoryAudioPaths: [URL] = []
-    private let formatter: DateComponentsFormatter = {
-        let formatter = DateComponentsFormatter()
-        formatter.unitsStyle = .positional
-        formatter.zeroFormattingBehavior = .pad
-        formatter.allowedUnits = [.hour, .minute, .second]
-        return formatter
-    }()
 
     init (view: AudioPlayerView, router: AudioPlayerRouter, path: URL, audioPaths: [URL]){
         self.view = view

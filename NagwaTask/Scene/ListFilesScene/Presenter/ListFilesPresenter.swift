@@ -28,13 +28,6 @@ class ListFilesPresenter: ListFilesPresenterProtocol{
     private var router: ListFilesRouter
     private var files: [FileModel] = []
     private var directory: URL?
-    private let formatter: DateComponentsFormatter = {
-        let formatter = DateComponentsFormatter()
-        formatter.unitsStyle = .positional
-        formatter.zeroFormattingBehavior = .pad
-        formatter.allowedUnits = [.hour, .minute, .second]
-        return formatter
-    }()
     
     init (view: ListFilesView, router: ListFilesRouter, directory: URL?){
         self.view = view
@@ -68,7 +61,7 @@ class ListFilesPresenter: ListFilesPresenterProtocol{
                 FileModel(fileName: $0.lastPathComponent,
                           path: $0,
                           fileType: $0.pathExtension == extensionWanted ? .Audio : .Folder,
-                          duration: formatter.string(from: AVAsset(url: $0).duration.seconds) ?? "0") }
+                          duration: AVAsset(url: $0).duration.seconds.getTimeAsString())}
                 .sorted {
                     ($0.fileType, $0.fileName.lowercased()) < ($1.fileType, $1.fileName.lowercased())
                 }
