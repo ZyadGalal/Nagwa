@@ -52,7 +52,7 @@ class AudioPlayerViewController: UIViewController {
         timer?.invalidate()
         presenter?.updateTime(with: TimeInterval(sender.value))
     }
-    func prepareUI() {
+    private func prepareUI() {
         timer?.invalidate()
         setupPlayer()
         setupSlider()

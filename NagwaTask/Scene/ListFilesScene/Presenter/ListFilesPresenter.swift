@@ -45,7 +45,7 @@ class ListFilesPresenter: ListFilesPresenterProtocol{
             }
         }
     }
-    func listFilesFrom(directory: URL?, with extensionWanted: String) -> [FileModel] {
+    private func listFilesFrom(directory: URL?, with extensionWanted: String) -> [FileModel] {
 
         let documentURL: URL
         if let directory = directory {

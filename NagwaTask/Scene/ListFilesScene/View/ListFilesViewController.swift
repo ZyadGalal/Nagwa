@@ -19,10 +19,10 @@ class ListFilesViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = refresh
     }
     
-    @objc func refresh() {
+    @objc private func refresh() {
         presenter?.loadView()
     }
-    func setupUI() {
+    private func setupUI() {
         filesTableView.register(FileTableViewCell.self)
     }
 }
