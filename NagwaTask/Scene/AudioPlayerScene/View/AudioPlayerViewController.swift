@@ -28,13 +28,10 @@ class AudioPlayerViewController: UIViewController {
         prepareAudioSession()
         prepareUI()
         togglePlay()
-        
     }
     override func viewWillDisappear(_ animated: Bool) {
         timer?.invalidate()
     }
-
-
     @IBAction func playButtonDidClicked(_ sender: Any) {
         togglePlay()
     }
@@ -76,7 +73,7 @@ class AudioPlayerViewController: UIViewController {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [])
             try AVAudioSession.sharedInstance().setActive(true)
         } catch {
-            print(error)
+            self.showAlert(title: "error", message: error.localizedDescription, onClick: nil)
         }
     }
     private func setupPlayer() {
@@ -87,7 +84,7 @@ class AudioPlayerViewController: UIViewController {
             player.delegate = self
             presenter?.updateAudioDuration(with: player.duration)
         } catch {
-            print(error)
+            self.showAlert(title: "error", message: error.localizedDescription, onClick: nil)
         }
     }
     @objc private func updateTime() {

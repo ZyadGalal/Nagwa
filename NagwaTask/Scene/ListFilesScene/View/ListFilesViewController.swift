@@ -34,6 +34,9 @@ extension ListFilesViewController: ListFilesView {
     func updateTitle(with title: String) {
         self.title = title
     }
+    func showAlert(title: String, message: String) {
+        self.showAlert(title: title, message: message, onClick: nil)
+    }
 }
 
 extension ListFilesViewController: UITableViewDataSource {

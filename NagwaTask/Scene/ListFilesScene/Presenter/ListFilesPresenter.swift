@@ -13,6 +13,7 @@ protocol ListFilesView: AnyObject{
     var presenter: ListFilesPresenterProtocol? {get set}
     func updateUI()
     func updateTitle(with title: String)
+    func showAlert(title: String, message: String)
 }
 
 protocol ListFilesPresenterProtocol: AnyObject {
@@ -69,7 +70,7 @@ class ListFilesPresenter: ListFilesPresenterProtocol{
             return files
 
         } catch {
-            print(error.localizedDescription)
+            self.view?.showAlert(title: "error", message: error.localizedDescription)
         }
         return []
     }
