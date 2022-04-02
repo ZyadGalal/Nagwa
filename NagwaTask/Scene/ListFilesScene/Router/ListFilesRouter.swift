@@ -11,11 +11,10 @@ class ListFilesRouter {
     class func createListFilesViewController(directory: URL?) -> UIViewController{
         let createViewController = ListFilesViewController()
         
-        if let createView = createViewController as? ListFilesView{
-            let router = ListFilesRouter()
-            let presenter = ListFilesPresenter(view: createView, router: router, directory: directory)
-            createView.presenter = presenter
-        }
+        let filesView = createViewController as ListFilesView
+        let router = ListFilesRouter()
+        let presenter = ListFilesPresenter(view: filesView, router: router, directory: directory)
+        filesView.presenter = presenter
         return createViewController
     }
     

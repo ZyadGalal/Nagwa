@@ -11,11 +11,11 @@ class AudioPlayerRouter {
     class func createAudioPlayerViewController(path: URL, audioPaths: [URL]) -> UIViewController{
         let createViewController = AudioPlayerViewController()
         
-        if let createView = createViewController as? AudioPlayerView{
-            let router = AudioPlayerRouter()
-            let presenter = AudioPlayerPresenter(view: createView, router: router, path: path, audioPaths: audioPaths)
-            createView.presenter = presenter
-        }
+        let audioView = createViewController as AudioPlayerView
+        let router = AudioPlayerRouter()
+        let presenter = AudioPlayerPresenter(view: audioView, router: router, path: path, audioPaths: audioPaths)
+        audioView.presenter = presenter
+        
         return createViewController
     }
 }
